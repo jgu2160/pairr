@@ -1,0 +1,16 @@
+<div>
+  <%= form_for current_user do |f| %>
+    <div>
+      <%= f.text_field :description %>
+    </div>
+    <ul>
+    <% Language.all.each do |language| %>
+      <li>
+        <%= check_box_tag "language_" + language.id.to_s, language.id, user_languages.include?(language), class: "filled-in" %>
+        <label for=<%="language_" + language.id.to_s %>> <%= language.name %></label>
+      </li>
+    <% end %>
+    </ul>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

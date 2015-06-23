@@ -7,10 +7,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+
+    <%= link_to "Root", root_path, class: "waves-effect waves-light btn" %>
+
     <% if current_user %>
-      <%= link_to "Logout", logout_path %>
+      <%= link_to "Logout", logout_path, class: "waves-effect waves-light btn red lighten-2" %>
+      <p><%= current_user.username %></p>
     <% else %>
-      <%= link_to 'Login', '/auth/github' %>
+      <%= link_to 'Login', '/auth/github', class: "waves-effect waves-light btn" %>
     <% end %>
 
     <%= yield %>
