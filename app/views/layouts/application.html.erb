@@ -7,6 +7,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
 
     <%= link_to "Root", root_path, class: "waves-effect waves-light btn" %>
 

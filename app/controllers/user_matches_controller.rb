@@ -6,6 +6,9 @@ class UserMatchesController < ApplicationController
       UserMatch.create(user_1: current_user.id, user_2: params[:user_2], user_1_choice: params[:user_1_choice])
     else
       already_match.update(user_2_choice: params[:user_1_choice])
+      if params[:user_1_choice] == "1"
+        flash[:notice] = "You and " + User.find(already_match.user_1).username + " are a perfect fit!"
+      end
     end
 
     next_match = current_user.potential_matches.sample
