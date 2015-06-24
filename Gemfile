@@ -44,6 +44,10 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'rack_session_access'
+end
+
 
 group :development, :test do
   gem 'rspec-rails'
