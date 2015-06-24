@@ -1,0 +1,14 @@
+<h1><%= @user.username %></h1>
+<%= image_tag @user.image %>
+<%= link_to "Approve", user_matches_path(user_2: @user.id, user_1_choice: 1), method: :post, class: "waves-effect waves-light btn" %>
+<%= link_to "Reject", user_matches_path(user_2: @user.id, user_1_choice: 0), method: :post, class: "waves-effect waves-light btn red lighten-2" %>
+<p>
+  <%= @user.description %>
+</p>
+<h3>Languages</h3>
+<ul>
+  <% @languages.each do |l| %>
+    <li><%= l %></li>
+  <% end %>
+</ul>
+

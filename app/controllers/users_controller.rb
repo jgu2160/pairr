@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def show
+    @user = User.find_by_id(params[:id])
+    @languages = @user.languages.pluck(:name).uniq
+  end
+
   def edit
   end
 

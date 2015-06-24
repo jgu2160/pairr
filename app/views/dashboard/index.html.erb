@@ -1,5 +1,12 @@
 <h1>Dashboard</h1>
 <% if current_user %>
   <%= image_tag current_user.image %>
+  <% if next_match %>
+    <%= link_to "Match", user_path(next_match), class: "waves-effect waves-light btn red lighten-2" %>
+    <% else %>
+      <h3>
+        No current candidates
+      </h3>
+  <% end %>
   <%= link_to "Edit", edit_user_path(current_user), class: "waves-effect waves-light btn" %>
 <% end %>

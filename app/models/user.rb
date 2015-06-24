@@ -10,4 +10,13 @@ class User < ActiveRecord::Base
     })
     user
   end
+
+  def potential_matches
+    User.all.pluck(:id) -
+      (UserMatch.where(user_1: self.id).pluck(:user_2) +
+       UserMatch.where(user_2: self.id, user_1_choice: 0).pluck(:user_1) +
+       UserMatch.where(user_2: self.id, user_2_choice: 0).pluck(:user_1) +
+       UserMatch.where(user_2: self.id, user_2_choice: 1).pluck(:user_1) +
+       [self.id])
+  end
 end

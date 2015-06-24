@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create(username:"neslom", image:"https://avatars.githubusercontent.com/u/8800860?v=3", description:"not poopin much")
+User.create(username:"worace", image:"https://avatars.githubusercontent.com/u/1227440?v=3", description:"not poopin")
+User.create(username:"xvalentino", image:"https://avatars.githubusercontent.com/u/8762410?v=3", description:"poopin")
+User.create(username:"indiesquidge", image:"https://avatars.githubusercontent.com/u/3409645?v=3", description:"poopin")
+Language.create(name: "Ruby")
+Language.create(name: "JavaScript")
+Language.create(name: "Go")
+Language.create(name: "Closure")
+Language.create(name: "SmallTalk")
+
+20.times do
+  UserLanguage.create(user_id: rand(5), language_id: rand(6))
+end
+
+UserMatch.create(user_1:1, user_2:5, user_1_choice:0,user_2_choice:nil)
+UserMatch.create(user_1:2, user_2:5, user_1_choice:1,user_2_choice:nil)
