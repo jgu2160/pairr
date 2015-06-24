@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   def next_match
+    positive_match = UserMatch.where(user_2: current_user.id, user_1_choice: 1, user_2_choice: nil).first
+
+    if positive_match
+      return positive_match.id
+    end
+
     @next_match ||= current_user.potential_matches.sample
   end
 end
